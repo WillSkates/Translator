@@ -3,8 +3,10 @@ Translator
 
 Translator is a very simple string translation library for PHP.
 
-##How To Install.
+##Build
+[![Build Status](https://secure.travis-ci.org/WillSkates/Translator.png?branch=master)](http://travis-ci.org/WillSkates/Translator)
 
+##How To Install.
 
 The best way to install Translator is through composer.
 
