@@ -38,10 +38,10 @@ trait TranslatorTrait
      * @param array  $info     The array of information to use.
      * @param String $language The language that the translations are written in. (e.g. 'en').
      */
-    public function setTranslations(array $info, $language)
+    public function setTranslations(array $info, $language, $merge = false)
     {
 
-        if ( isset($this->translations[$language]) ) {
+        if ( isset($this->translations[$language]) && $merge ) {
 
             $this->translations[$language] = array_merge(
                 $this->translations[$language],
