@@ -35,8 +35,10 @@ trait TranslatorTrait
      * Provide an array of information to use as translation data
      * for a provided language.
      *
-     * @param array  $info     The array of information to use.
-     * @param String $language The language that the translations are written in. (e.g. 'en').
+     * @param array   $info     The array of information to use.
+     * @param String  $language The language that the translations are written in. (e.g. 'en').
+     * @param Boolean $merge    True or false depending on whether the array should be
+     *                          merged with existing data for this language if there is any.
      */
     public function setTranslations(array $info, $language, $merge = false)
     {
