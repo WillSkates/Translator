@@ -4,7 +4,7 @@
     "description": "Translator is a very simple string translation library for PHP.",
     "keywords": ["php", "translation"],
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
 	"homepage": "http://github.com/WillSkates/Translator",
 	"license": "MIT",
 	"authors": [
