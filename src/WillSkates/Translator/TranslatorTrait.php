@@ -40,7 +40,18 @@ trait TranslatorTrait
      */
     public function setTranslations(array $info, $language)
     {
-        $this->translations[$language] = $info;
+
+        if ( isset($this->translations[$language]) ) {
+
+            $this->translations[$language] = array_merge(
+                $this->translations[$language],
+                $info
+            );
+
+        } else {
+            $this->translations[$language] = $info;
+        }
+
     }
 
     /**
