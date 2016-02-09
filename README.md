@@ -33,7 +33,7 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$translator->setTranslation('Hello', 'Hallo', 'de');
+		$translator->useTranslation('Hello', 'Hallo', 'de');
 	?>
 
 ```
@@ -43,7 +43,7 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$hello = $translator->getTranslation('Hello', 'de');
+		$hello = $translator->translate('Hello', 'de');
 		//The value of $hello is 'Hallo'.
 	?>
 
@@ -55,7 +55,7 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$translator->setTranslations(
+		$translator->useTranslations(
 			array(
 				'Hello' => 'Hallo',
 				'Goodbye' => 'auf Wiedersehen'
@@ -71,7 +71,7 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$german = $translator->getTranslations('de');
+		$german = $translator->translations('de');
 
 		//$german is an array, assuming they were set it will contain ['Hello' => 'Hallo', 'Goodbye' => 'auf Wiedersehen'].
 	?>
@@ -83,7 +83,7 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$translator->setTranslations(
+		$translator->useTranslations(
 			array(
 				'Hello' => 'Hallo',
 				'Goodbye' => 'auf Wiedersehen'
@@ -91,7 +91,7 @@ The best way to install Translator is through composer.
 			'de'
 		);
 
-		$translator->setTranslations(
+		$translator->useTranslations(
 			array(
 				'Hello' => 'Yo',
 				'Goodbye' => 'Piece!'
@@ -99,13 +99,13 @@ The best way to install Translator is through composer.
 			'bro'
 		);
 
-		$translator->setDefaultLang('de');
-		$hello = $translator->getTranslation('Hello'); //Hallo
-		$goodbye = $translator->getTranslation('Goodbye'); //auf Wiedersehen
+		$translator->useDefaultLang('de');
+		$hello = $translator->translate('Hello'); //Hallo
+		$goodbye = $translator->translate('Goodbye'); //auf Wiedersehen
 
-		$translator->setDefaultLang('bro');
-		$hello = $translator->getTranslation('Hello'); //Yo
-		$goodbye = $translator->getTranslation('Goodbye'); //Piece!
+		$translator->useDefaultLang('bro');
+		$hello = $translator->translate('Hello'); //Yo
+		$goodbye = $translator->translate('Goodbye'); //Piece!
 
 	?>
 
