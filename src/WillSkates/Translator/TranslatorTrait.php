@@ -40,7 +40,7 @@ trait TranslatorTrait
      * @param Boolean $merge    True or false depending on whether the array should be
      *                          merged with existing data for this language if there is any.
      */
-    public function setTranslations(array $info, $language, $merge = false)
+    public function useTranslations(array $info, $language, $merge = false)
     {
 
         if ( isset($this->translations[$language]) && $merge ) {
@@ -62,7 +62,7 @@ trait TranslatorTrait
      * @param  String $language The name of language that this information is made up of.
      * @return array            The language that the translations are written in. (e.g. 'en').
      */
-    public function getTranslations($language)
+    public function translations($language)
     {
         if ( isset($this->translations[$language]) ) {
             return $this->translations[$language];
@@ -78,7 +78,7 @@ trait TranslatorTrait
      * @param String $translation The translation.
      * @param String $language    The language that the translation is written in. (e.g. 'en').
      */
-    public function setTranslation($orig, $translation, $language)
+    public function useTranslation($orig, $translation, $language)
     {
 
         if ( !isset($this->translations[$language]) ) {
@@ -97,7 +97,7 @@ trait TranslatorTrait
      *
      * @return String The translated string.
      */
-    public function getTranslation($orig, $language = false)
+    public function translate($orig, $language = false)
     {
 
         if (!$language) {
@@ -117,7 +117,7 @@ trait TranslatorTrait
      *
      * @return String
      */
-    public function getDefaultLang()
+    public function defaultLang()
     {
         return $this->defaultLang;
     }
@@ -129,7 +129,7 @@ trait TranslatorTrait
      *
      * @return self
      */
-    public function setDefaultLang($defaultLang)
+    public function useDefaultLang($defaultLang)
     {
         $this->defaultLang = $defaultLang;
 
