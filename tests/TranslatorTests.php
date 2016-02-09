@@ -5,7 +5,7 @@ use WillSkates\Translator\Translator;
 class TranslatorTests extends PHPUnit_Framework_TestCase
 {
 
-	private $this->translator;
+	private $translator;
 
 	public function setUp()
 	{
@@ -31,7 +31,7 @@ class TranslatorTests extends PHPUnit_Framework_TestCase
 
 		$this->assertCount(count($en), $translated);
 
-		$this->translator->withDefaultLang('en');
+		$this->translator->useDefaultLang('en');
 
 		foreach ( $en as $orig => $translation ) {
 			$this->assertTrue(isset($translated[$orig]));
@@ -89,7 +89,7 @@ class TranslatorTests extends PHPUnit_Framework_TestCase
 
 		$this->assertCount(count($de), $translated);
 
-		$this->translator->setDefaultLang('de');
+		$this->translator->useDefaultLang('de');
 
 		foreach ( $de as $orig => $translation ) {
 			$this->assertTrue(isset($translated[$orig]));
@@ -147,7 +147,7 @@ class TranslatorTests extends PHPUnit_Framework_TestCase
 
 		$this->assertCount(count($bro), $translated);
 
-		$this->translator->setDefaultLang('bro');
+		$this->translator->useDefaultLang('bro');
 
 		foreach ( $bro as $orig => $translation ) {
 			$this->assertTrue(isset($translated[$orig]));
