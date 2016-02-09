@@ -13,7 +13,7 @@ The best way to install Translator is through composer.
 ```JSON
 	{
 	    "require": {
-	        "willskates/translator": "v1.0.1"
+	        "willskates/translator": "1.1.0"
 	    }
 	}
 ```
