@@ -14,7 +14,7 @@ class TranslatorTests extends PHPUnit_Framework_TestCase
 
 	public function testCreation()
 	{
-	    $this->assertEquals('en', $this->translator->defaultLang());
+	    $this->assertInstanceOf('WillSkates\Translator\TranslatorInterface', $this->translator);
 	}
 
 	public function testEnglish()
