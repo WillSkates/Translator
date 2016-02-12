@@ -29,11 +29,8 @@ class Provider implements ServiceProviderInterface
 
         $app['translator'] = $app->share(function($app) {
             $translator = new Translator();
-            $translator->useDefaultLang($app['ws.translator.defaultLang']);
             return $translator;
         });
-
-        $app['ws.translator.defaultLang'] = 'en';
 
     }
 

@@ -22,36 +22,28 @@ trait TranslatorTrait
      *
      * @var array
      */
-    protected $translations = array();
-
-    /**
-     * A string dictating the default language to translate into. (e.g. 'en').
-     *
-     * @var String
-     */
-    protected $defaultLang = 'en';
+    protected $translations = [];
 
     /**
      * Provide an array of information to use as translation data
      * for a provided language.
      *
      * @param array   $info     The array of information to use.
-     * @param String  $language The language that the translations are written in. (e.g. 'en').
      * @param Boolean $merge    True or false depending on whether the array should be
      *                          merged with existing data for this language if there is any.
      */
-    public function useTranslations(array $info, $language, $merge = false)
+    public function useTranslations(array $info, $merge = false)
     {
 
-        if ( isset($this->translations[$language]) && $merge ) {
+        if ($merge) {
 
-            $this->translations[$language] = array_merge(
-                $this->translations[$language],
+            $this->translations= array_merge(
+                $this->translations,
                 $info
             );
 
         } else {
-            $this->translations[$language] = $info;
+            $this->translations = $info;
         }
 
     }
@@ -59,16 +51,11 @@ trait TranslatorTrait
     /**
      * Get all translation information for a given language.
      *
-     * @param  String $language The name of language that this information is made up of.
      * @return array            The language that the translations are written in. (e.g. 'en').
      */
     public function translations($language)
     {
-        if ( isset($this->translations[$language]) ) {
-            return $this->translations[$language];
-        }
-
-        return array();
+        return $this->translations;
     }
 
     /**
@@ -76,63 +63,27 @@ trait TranslatorTrait
      *
      * @param String $orig        The original string.
      * @param String $translation The translation.
-     * @param String $language    The language that the translation is written in. (e.g. 'en').
      */
-    public function useTranslation($orig, $translation, $language)
+    public function useTranslation($orig, $translation)
     {
-
-        if ( !isset($this->translations[$language]) ) {
-            $this->translations[$language] = array();
-        }
-
-        $this->translations[$language][$orig] = $translation;
-
+        $this->translations[$orig] = $translation;
     }
 
     /**
      * Get the translation for a given string.
      *
      * @param  String         $orig     The original string.
-     * @param  boolean|String $language The language that the translation is written in. (e.g. 'en').
      *
      * @return String The translated string.
      */
-    public function translate($orig, $language = false)
+    public function translate($orig)
     {
 
-        if (!$language) {
-            $language = $this->defaultLang;
-        }
-
-        if ( isset($this->translations[$language][$orig]) ) {
-            return $this->translations[$language][$orig];
+        if ( isset($this->translations[$orig]) ) {
+            return $this->translations[$orig];
         }
 
         return false;
 
-    }
-
-    /**
-     * Gets the string dictating the default language to translate into. (e.g. 'en').
-     *
-     * @return String
-     */
-    public function defaultLang()
-    {
-        return $this->defaultLang;
-    }
-
-    /**
-     * Sets the string dictating the default language to translate into. (e.g. 'en').
-     *
-     * @param String $defaultLang A string representing the default language to translate into. (e.g. 'en').
-     *
-     * @return self
-     */
-    public function useDefaultLang($defaultLang)
-    {
-        $this->defaultLang = $defaultLang;
-
-        return $this;
     }
 }

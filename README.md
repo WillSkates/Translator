@@ -33,7 +33,7 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$translator->useTranslation('Hello', 'Hallo', 'de');
+		$translator->useTranslation('Hello', 'Hallo');
 	?>
 
 ```
@@ -43,7 +43,7 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$hello = $translator->translate('Hello', 'de');
+		$hello = $translator->translate('Hello');
 		//The value of $hello is 'Hallo'.
 	?>
 
@@ -56,11 +56,10 @@ The best way to install Translator is through composer.
 
 	<?php
 		$translator->useTranslations(
-			array(
+			[
 				'Hello' => 'Hallo',
 				'Goodbye' => 'auf Wiedersehen'
-			),
-			'de'
+			]
 		);
 	?>
 
@@ -71,7 +70,7 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$german = $translator->translations('de');
+		$german = $translator->translations();
 
 		//$german is an array, assuming they were set it will contain ['Hello' => 'Hallo', 'Goodbye' => 'auf Wiedersehen'].
 	?>
@@ -83,29 +82,30 @@ The best way to install Translator is through composer.
 ```PHP
 
 	<?php
-		$translator->useTranslations(
-			array(
+
+		$deTranslator = new Translator();
+
+		$deTranslator->useTranslations(
+			[
 				'Hello' => 'Hallo',
 				'Goodbye' => 'auf Wiedersehen'
-			),
-			'de'
+			]
 		);
 
-		$translator->useTranslations(
-			array(
+		$hello = $deTranslator->translate('Hello'); //Hallo
+		$goodbye = $deTranslator->translate('Goodbye'); //auf Wiedersehen
+
+		$broTranslator = new Translator();
+
+		$broTranslator->useTranslations(
+			[
 				'Hello' => 'Yo',
 				'Goodbye' => 'Piece!'
-			),
-			'bro'
+			]
 		);
 
-		$translator->useDefaultLang('de');
-		$hello = $translator->translate('Hello'); //Hallo
-		$goodbye = $translator->translate('Goodbye'); //auf Wiedersehen
-
-		$translator->useDefaultLang('bro');
-		$hello = $translator->translate('Hello'); //Yo
-		$goodbye = $translator->translate('Goodbye'); //Piece!
+		$hello = $broTranslator->translate('Hello'); //Yo
+		$goodbye = $broTranslator->translate('Goodbye'); //Piece!
 
 	?>
 
