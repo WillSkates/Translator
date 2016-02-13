@@ -53,7 +53,7 @@ trait TranslatorTrait
      *
      * @return array            The language that the translations are written in. (e.g. 'en').
      */
-    public function translations($language)
+    public function translations()
     {
         return $this->translations;
     }

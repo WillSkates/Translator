@@ -16,7 +16,7 @@ namespace WillSkates\Translator;
  */
 interface TranslatorInterface
 {
-	
+
 	/**
      * Provide an array of information to use as translation data
      * for a provided language.
@@ -32,7 +32,7 @@ interface TranslatorInterface
      *
      * @return array            The language that the translations are written in. (e.g. 'en').
      */
-    public function translations($language);
+    public function translations();
 
     /**
      * Set the translation of a given term or phrase within a given language.
