@@ -7,10 +7,10 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="true"
-         stopOnError="true"
-         stopOnIncomplete="true"
-         stopOnSkipped="true"
+         stopOnFailure="false"
+         stopOnError="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
          syntaxCheck="true"
 >
     <testsuites>

@@ -14,7 +14,7 @@ namespace WillSkates\Translator;
  *
  * @author WillSkates <will@stuffby.ws>
  */
-class Translator
+class Translator implements TranslatorInterface
 {
     use TranslatorTrait;
 }
