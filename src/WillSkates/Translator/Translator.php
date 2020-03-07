@@ -21,7 +21,7 @@ class Translator implements TranslatorInterface
      *
      * @var array
      */
-    protected $translations = [];
+    protected $translations = array();
 
     /**
      * Provide an array of information to use as translation data
