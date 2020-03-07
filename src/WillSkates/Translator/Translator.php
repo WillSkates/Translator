@@ -28,8 +28,10 @@ class Translator implements TranslatorInterface
      * for a provided language.
      *
      * @param array   $info     The array of information to use.
-     * @param Boolean $merge    True or false depending on whether the array should be
+     * @param bool    $merge    True or false depending on whether the array should be
      *                          merged with existing data for this language if there is any.
+	 *
+	 * @return void
      */
     public function useTranslations(array $info, $merge = false)
     {
@@ -60,9 +62,11 @@ class Translator implements TranslatorInterface
     /**
      * Set the translation of a given term or phrase within a given language.
      *
-     * @param String $orig        The original string.
-     * @param String $translation The translation.
-     */
+     * @param string $orig        The original string.
+     * @param string $translation The translation.
+	 * 
+	 * @return void
+	 */
     public function useTranslation($orig, $translation)
     {
         $this->translations[$orig] = $translation;
@@ -71,9 +75,9 @@ class Translator implements TranslatorInterface
     /**
      * Get the translation for a given string.
      *
-     * @param  String         $orig     The original string.
+     * @param  string         $orig     The original string.
      *
-     * @return String The translated string.
+     * @return string|bool The translated string or false if it doesn't exist.
      */
     public function translate($orig)
     {
