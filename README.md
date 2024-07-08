@@ -3,110 +3,86 @@ Translator
 
 Translator is a very simple string translation library for PHP.
 
-##Build
+## Build
 [![Build Status](https://secure.travis-ci.org/WillSkates/Translator.png?branch=master)](http://travis-ci.org/WillSkates/Translator)
 
-##How To Install.
+## How To Install.
 
 The best way to install Translator is through composer.
 
 ```JSON
-	{
-	    "require": {
-	        "willskates/translator": "1.1.0"
-	    }
-	}
+{
+    "require": {
+        "willskates/translator": "1.1.0"
+    }
+}
 ```
 
-##Usage.
+## Usage.
 
-###Creating the Translator Object
+### Creating the Translator Object
 
 ```PHP
-	<?php
-		$translator = new Translator();
-	?>
+$translator = new Translator();
 ```
 
-###Setting a Translation.
+### Setting a Translation.
 
 ```PHP
-
-	<?php
-		$translator->useTranslation('Hello', 'Hallo');
-	?>
-
+$translator->useTranslation('Hello', 'Hallo');
 ```
 
-###Getting a Translation.
+### Getting a Translation.
 
 ```PHP
-
-	<?php
-		$hello = $translator->translate('Hello');
-		//The value of $hello is 'Hallo'.
-	?>
-
+$hello = $translator->translate('Hello');
+//The value of $hello is 'Hallo'.
 ```
 
 
-###Setting a list of translations.
+### Setting a list of translations.
 
 ```PHP
-
-	<?php
-		$translator->useTranslations(
-			[
-				'Hello' => 'Hallo',
-				'Goodbye' => 'auf Wiedersehen'
-			]
-		);
-	?>
-
+$translator->useTranslations(
+    [
+        'Hello' => 'Hallo',
+        'Goodbye' => 'auf Wiedersehen'
+    ]
+);
 ```
 
-###Getting a list of translations.
+### Getting a list of translations.
 
 ```PHP
+$german = $translator->translations();
 
-	<?php
-		$german = $translator->translations();
-
-		//$german is an array, assuming they were set it will contain ['Hello' => 'Hallo', 'Goodbye' => 'auf Wiedersehen'].
-	?>
-
+//$german is an array, assuming they were set it will contain ['Hello' => 'Hallo', 'Goodbye' => 'auf Wiedersehen'].
 ```
 
-###Setting and using the default language.
+### Setting and using the default language.
 
 ```PHP
+$deTranslator = new Translator();
 
-	<?php
+$deTranslator->useTranslations(
+    [
+        'Hello' => 'Hallo',
+        'Goodbye' => 'auf Wiedersehen'
+    ]
+);
 
-		$deTranslator = new Translator();
+$hello = $deTranslator->translate('Hello'); //Hallo
+$goodbye = $deTranslator->translate('Goodbye'); //auf Wiedersehen
 
-		$deTranslator->useTranslations(
-			[
-				'Hello' => 'Hallo',
-				'Goodbye' => 'auf Wiedersehen'
-			]
-		);
+$broTranslator = new Translator();
 
-		$hello = $deTranslator->translate('Hello'); //Hallo
-		$goodbye = $deTranslator->translate('Goodbye'); //auf Wiedersehen
+$broTranslator->useTranslations(
+    [
+        'Hello' => 'Yo',
+        'Goodbye' => 'Piece!'
+    ]
+);
 
-		$broTranslator = new Translator();
-
-		$broTranslator->useTranslations(
-			[
-				'Hello' => 'Yo',
-				'Goodbye' => 'Piece!'
-			]
-		);
-
-		$hello = $broTranslator->translate('Hello'); //Yo
-		$goodbye = $broTranslator->translate('Goodbye'); //Piece!
-
-	?>
-
+$hello = $broTranslator->translate('Hello'); //Yo
+$goodbye = $broTranslator->translate('Goodbye'); //Piece!
 ```
