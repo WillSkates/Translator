@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /*
  * This file is part of Translator
  *
@@ -25,7 +27,7 @@ interface TranslatorInterface
      * @param Boolean $merge    True or false depending on whether the array should be
      *                          merged with existing data for this language if there is any.
      */
-    public function useTranslations(array $info, $merge = false);
+    public function useTranslations(array $info, bool $merge = false);
 
     /**
      * Get all translation information for a given language.
@@ -37,17 +39,17 @@ interface TranslatorInterface
     /**
      * Set the translation of a given term or phrase within a given language.
      *
-     * @param String $orig        The original string.
-     * @param String $translation The translation.
+     * @param string $orig        The original string.
+     * @param string $translation The translation.
      */
-    public function useTranslation($orig, $translation);
+    public function useTranslation(string $orig, string $translation);
 
     /**
      * Get the translation for a given string.
      *
-     * @param  String         $orig     The original string.
+     * @param  string         $orig     The original string.
      *
-     * @return String The translated string.
+     * @return string The translated string.
      */
-    public function translate($orig);
+    public function translate(string $orig);
 }

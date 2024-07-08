@@ -2,12 +2,12 @@
 
 use WillSkates\Translator\Translator;
 
-class TranslatorTests extends PHPUnit_Framework_TestCase
+class TranslatorTests extends \PHPUnit\Framework\TestCase
 {
 
 	private $translator;
 
-	public function setUp()
+	public function setUp(): void
 	{
 		$this->translator = new Translator();
 	}
